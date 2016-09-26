@@ -1,0 +1,36 @@
+{
+  "name": "cl-index",
+  "version": "0.0.1",
+  "description": "Common Library index service. Reads messages from a RabbitMQ queue and interacts with an ElasticSearch index.",
+  "main": "index_service.js",
+  "scripts": {
+    "test": "mocha --recursive --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com:edify/cl-index.git"
+  },
+  "keywords": [
+    "cl",
+    "common",
+    "library",
+    "index",
+    "elasticSearch",
+    "rabbitMQ"
+  ],
+  "author": "diugalde",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/edify/cl-index/issues"
+  },
+  "homepage": "https://gitlab.com/edify/cl-index.git#README",
+  "dependencies": {
+    "amqplib": "^0.4.2",
+    "bunyan": "^1.8.1",
+    "bunyan-format": "^0.2.1",
+    "elasticsearch": "^11.0.1",
+    "mocha": "^3.0.2",
+    "request": "^2.75.0",
+    "request-promise": "^4.1.1"
+  }
+}
