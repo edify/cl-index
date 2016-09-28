@@ -26,3 +26,8 @@ $ export CL_RMQ_URL=amqp://localhost
 $ chmod +x bin/index_service
 $ ./bin/index_service
 ```
+
+6.  If you want to run tests:
+```bash
+$ npm test
+```
