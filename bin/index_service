@@ -1,0 +1,4 @@
+#!/usr/bin/node
+
+const indexService = require('../lib/index_service');
+indexService.main();
