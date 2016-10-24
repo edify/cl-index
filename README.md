@@ -17,7 +17,10 @@ $ npm install
 ```bash
 $ export CL_ES_URL=localhost:9200
 $ export CL_RMQ_URL=amqp://localhost
+$ export CL_RMQ_PREFETCH_COUNT=30
 ```
+
+Note: CL_RMQ_PREFETCH_COUNT defines the max number of messages delivered to a consumer at once. More info: https://www.rabbitmq.com/consumer-prefetch.html
 
 4.  Before executing the main file, you need to make sure that your rabbitMQ and elasticSearch instances are running (check docker-compose file in the cl-lo project).
 
