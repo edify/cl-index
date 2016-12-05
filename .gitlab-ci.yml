@@ -1,9 +1,23 @@
 stages:
   - test
+  - publish
 
-test-debug-js:
-  image: node
+test-debug:
+  image: node:6.9.1
   stage: test
   script:
+    - curl -u$ARTIFACTORY_USERNAME:$ARTIFACTORY_PASSWORD https://edify.jfrog.io/edify/api/npm/auth > ~/.npmrc
+    - echo registry=http://edify.jfrog.io/edify/api/npm/npm-edify >> ~/.npmrc
     - npm install
-    - npm test
+
+release-docker:
+  image: node:6.9.1
+  stage: publish
+  only:
+    - master
+  script:
+    - curl -u$ARTIFACTORY_USERNAME:$ARTIFACTORY_PASSWORD https://edify.jfrog.io/edify/api/npm/auth > ~/.npmrc
+    - echo registry=http://edify.jfrog.io/edify/api/npm/npm-edify >> ~/.npmrc
+    - npm install
+    - docker login edify-dkr.jfrog.io -u $ARTIFACTORY_USERNAME -p $ARTIFACTORY_PASSWORD
+    - docker build -t cl-index .
